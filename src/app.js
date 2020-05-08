@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { fetchData } from './api/';
 import image from './images/logo.jpg';
 
-
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,12 +18,17 @@ const BannerImage = styled.img`
 export default class App extends React.Component {
 
   state = {
-    data: {}
+    data: {},
+    country: '',
   }
 
   async componentDidMount() {
     const fetchedData = await fetchData();
     this.setState({data: fetchedData});
+  }
+
+  handleCountryChange = async (country) => {
+    console.log(country);
   }
 
   render() {
@@ -34,7 +38,7 @@ export default class App extends React.Component {
       <AppContainer>
         <BannerImage src={image} alt="COVID-19" />
         <Cards data={data}/>
-        <CountryPicker />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
       </AppContainer>
     )
