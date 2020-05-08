@@ -9,11 +9,19 @@ const AppContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media 770px {
+    margin: 0 10%;
+  }
 `;
 
 const BannerImage = styled.img`
   width: 370px;
   margin-top: 50px;
+
+  @media 770px {
+    width: 100%
+  }
 `;
 export default class App extends React.Component {
 
@@ -28,8 +36,13 @@ export default class App extends React.Component {
   }
 
   handleCountryChange = async (country) => {
-    const countryData = await fetchData(country);
-    this.setState({data: countryData, country: country});
+    if (country) {
+      const countryData = await fetchData(country);
+      this.setState({data: countryData, country: country});
+    } else {
+      const countryData = await fetchData();
+      this.setState({data: countryData, country: ''});
+    }
   }
 
   render() {

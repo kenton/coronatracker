@@ -4,23 +4,42 @@ import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import CountUp from 'react-countup';
 
 const CardContainer = styled(Grid)`
-  margin: 50px 0;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px 0;
+
+  @media 770px {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 `;
 
 const InfectedGrid = styled(CardContent)`
   margin: 0 2% !important;
   border-bottom: 10px solid rgba(0,0,0,0.5);
+
+  @media 770px {
+    margin: 2% 0 !important;
+  }
 `;
 
 const RecoveredGrid = styled(CardContent)`
   margin: 0 2% !important;
   border-bottom: 10px solid rgba(0,255,0,0.5);
+
+  @media 770px {
+    margin: 2% 0 !important;
+  }
 `;
 
 const DeathsGrid = styled(CardContent)`
   margin: 0 2% !important;
   border-bottom: 10px solid rgba(255,0,0,0.5);
+
+  @media 770px {
+    margin: 2% 0 !important;
+  }
 `;
 
 const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {

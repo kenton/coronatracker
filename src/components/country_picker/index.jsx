@@ -4,6 +4,8 @@ import { NativeSelect, FormControl } from '@material-ui/core';
 import { fetchCountries } from '../../api';
 
 const CountryPickerForm = styled(FormControl)`
+  width: 30%;
+  margin-bottom: 30px !important;
 `;
 
 const CountryPicker = ({handleCountryChange}) => {
