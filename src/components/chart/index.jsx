@@ -25,7 +25,7 @@ const Chart = () => {
     (
       <Line
         data ={{
-          labels: dailyData.map(({reportDate}) => reportDate),
+          labels: dailyData.map(({date}) => date),
           datasets: [
             {
               data: dailyData.map(({confirmed}) => confirmed),
